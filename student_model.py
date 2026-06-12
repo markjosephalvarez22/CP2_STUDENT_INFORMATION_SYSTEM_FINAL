@@ -33,3 +33,41 @@ class StudentModel:
         ))
 
         self.conn.commit()
+
+    def get_all_students(self):
+
+        self.cursor.execute("SELECT * FROM students")
+        return self.cursor.fetchall()
+
+    def search_student(self, student_id):
+
+        self.cursor.execute(
+            "SELECT * FROM students WHERE student_id=?",
+            (student_id,)
+        )
+
+        return self.cursor.fetchone()
+
+    def update_student(self, student_id, name, age, course, year_level):
+
+        self.cursor.execute("""
+        UPDATE students
+        SET name=?, age=?, course=?, year_level=?
+        WHERE student_id=?
+        """, (name, age, course, year_level, student_id))
+
+        self.conn.commit()
+
+    def delete_student(self, student_id):
+
+        self.cursor.execute(
+            "DELETE FROM students WHERE student_id=?",
+            (student_id,)
+        )
+
+        self.conn.commit()
+
+    def count_students(self):
+
+        self.cursor.execute("SELECT COUNT(*) FROM students")
+        return self.cursor.fetchone()[0]

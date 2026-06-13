@@ -32,3 +32,36 @@ class StudentController:
         result = self.model.search_student(sid)
 
         print(result if result else "Not found")
+
+    def update_student(self):
+
+        sid = input("ID: ")
+
+        student = self.model.search_student(sid)
+
+        if not student:
+            print("Not found")
+            return
+
+        self.model.update_student(
+            sid,
+            input("New Name: "),
+            int(input("New Age: ")),
+            input("New Course: "),
+            input("New Year Level: ")
+        )
+
+        print("Updated!")
+
+    def delete_student(self):
+
+        sid = input("ID: ")
+
+        self.model.delete_student(sid)
+
+        print("Deleted!")
+
+    def count_students(self):
+
+        total = self.model.count_students()
+        print("Total:", total)

@@ -1,10 +1,12 @@
 import sqlite3
+import os
 
 
 class StudentModel:
 
     def __init__(self):
 
+        os.makedirs("database", exist_ok=True)
         self.conn = sqlite3.connect("database/students.db")
         self.cursor = self.conn.cursor()
 

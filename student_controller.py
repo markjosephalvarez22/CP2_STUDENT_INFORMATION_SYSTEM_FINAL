@@ -61,6 +61,6 @@ class StudentController:
 
         print("Deleted!")
 
-   def count_students(self):
-    total = self.model.count_students()
-    print("Total:", total)
+    def count_students(self):
+        total = self.model.count_students()
+        print("Total:", total)

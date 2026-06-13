@@ -15,3 +15,12 @@ class StudentView:
         print("6. Count Students")
         print("7. Exit")
 
+    @staticmethod
+    def display_students(students):
+
+        if not students:
+            print("No students found.")
+            return
+
+        for s in students:
+            print(s)

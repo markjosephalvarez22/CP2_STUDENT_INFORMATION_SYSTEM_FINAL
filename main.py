@@ -26,3 +26,10 @@ while True:
 
     elif choice == "6":
         controller.count_students()
+
+    elif choice == "7":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid input")

@@ -1,10 +1,13 @@
 from student_model import StudentModel
 from student_view import StudentView
 
+
 class StudentController:
+
     def __init__(self):
         self.model = StudentModel()
         self.view = StudentView()
+
     def add_student(self):
 
         student = {
@@ -15,3 +18,17 @@ class StudentController:
             "year_level": input("Year Level: ")
         }
 
+        self.model.add_student(student)
+        self.view.display_message("Student added!")
+
+    def view_students(self):
+
+        students = self.model.get_all_students()
+        self.view.display_students(students)
+
+    def search_student(self):
+
+        sid = input("ID: ")
+        result = self.model.search_student(sid)
+
+        print(result if result else "Not found")

@@ -19,8 +19,15 @@ class StudentView:
     def display_students(students):
 
         if not students:
-            print("No students found.")
+            print("\nNo students found.")
             return
 
+        print("\nID | NAME | AGE | COURSE | YEAR")
+        print("-" * 40)
+
         for s in students:
-            print(s)
+            print(f"{s[0]} | {s[1]} | {s[2]} | {s[3]} | {s[4]}")
+
+    @staticmethod
+    def display_message(msg):
+        print("\n" + msg)
